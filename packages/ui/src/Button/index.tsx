@@ -1,5 +1,5 @@
 import { type ReactNode, type ButtonHTMLAttributes } from "react";
-import { classJoin } from "@repo/utils/classJoin";
+import { classJoin } from "@repo/utils/class-join";
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;

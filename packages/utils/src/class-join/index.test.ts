@@ -2,7 +2,7 @@ import { classJoin } from ".";
 
 jest.spyOn(global.console, "log");
 
-describe("@repo/utils/classJoin", () => {
+describe("@repo/utils/class-join", () => {
   it("filters and joins classnames by a single space", () => {
     const condition = true;
 
