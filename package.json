@@ -1,8 +1,8 @@
 {
-  "name": "turborepo-starter-with-tsup",
+  "name": "room-reservator",
   "description": "This is a minified version of an official example of turborepo which uses tsup in its packages and has next.js and vite apps.",
   "private": false,
-  "author": "Zahra Shahrouzi <z.shahrouzi@gmail.com>",
+  "author": "Panithi Makthiengtrong <betich365@gmail.com>",
   "keywords": [
     "turbo",
     "turborepo",

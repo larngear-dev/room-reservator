@@ -1,5 +1,5 @@
 import { initClient } from "@ts-rest/core";
-import { contract } from "@repo/api";
+import { contract } from "../../../api/src/contract";
 
 // `contract` is the AppRouter returned by `c.router`
 const client = initClient(contract, {
@@ -12,10 +12,10 @@ export async function getPosts() {
 
   if (status === 200) {
     // body is Post[]c
-    console.log(body);
+    return body;
   } else {
     // body is unknown
-    console.log(body);
+    return [];
   }
 }
 
@@ -29,9 +29,9 @@ export async function createPost() {
 
   if (status === 201) {
     // body is Post
-    console.log(body);
+    return body;
   } else {
     // body is unknown
-    console.log(body);
+    return [];
   }
 }

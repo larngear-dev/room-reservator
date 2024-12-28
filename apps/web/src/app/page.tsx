@@ -1,5 +1,5 @@
 import { log } from "@repo/utils/logger";
-import HomePage from "@nextjs-app/modules/homePage/homePage";
+import HomePage from "@app/modules/homePage/homePage";
 
 export const metadata = {
   title: "",
