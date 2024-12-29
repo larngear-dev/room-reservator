@@ -1,5 +1,5 @@
 import { log } from "@repo/utils/logger";
-import HomePage from "@app/modules/homePage/homePage";
+import HomePage from "@/modules/home-page";
 
 export const metadata = {
   title: "",

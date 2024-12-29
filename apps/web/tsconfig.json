@@ -9,7 +9,7 @@
       }
     ],
     "baseUrl": ".",
-    "paths": { "@app/modules/*": ["./src/app/_modules/*"], "@/*": ["./src/*"] }
+    "paths": { "@app/modules/*": ["src/modules/*"], "@/*": ["./src/*"] }
   },
   "include": [
     "src",
