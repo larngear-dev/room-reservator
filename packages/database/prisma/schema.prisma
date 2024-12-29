@@ -15,8 +15,9 @@ datasource db {
 
 model User {
   id          String        @id @default(cuid())
-  studentId   String        @unique
-  name        String?
+  studentId   String        @unique @db.VarChar(10)
+  firstName   String
+  lastName    String
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   Reservation Reservation[]
@@ -24,12 +25,11 @@ model User {
 
 model Reservation {
   id             String       @id @default(cuid())
+  topic          String
+  startAt        DateTime
+  endAt          DateTime
   userId         String
   user           User         @relation(fields: [userId], references: [id])
-  date           DateTime
-  from           String
-  to             String
-  topic          String
   organizationId String
   organization   Organization @relation(fields: [organizationId], references: [id])
   createdAt      DateTime     @default(now())
