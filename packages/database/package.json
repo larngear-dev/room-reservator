@@ -1,22 +1,19 @@
 {
-  "name": "@repo/api-schema",
-  "license": "MIT",
+  "name": "@repo/database",
   "version": "0.0.0",
-  "private": true,
+  "license": "MIT",
+  "main": "./index.js",
+  "types": "./index.ts",
   "scripts": {
-    "build": "tsup",
-    "watch": "tsup --watch",
-    "lint": "eslint src/",
-    "typecheck": "tsc --noEmit",
-    "test": "jest",
-    "clean": "rm -rf dist .turbo node_modules"
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio"
   },
-  "exports": {
-    "./*": {
-      "types": "./dist/*/index.d.ts"
-    }
+  "dependencies": {
+    "@prisma/client": "^4.9.0"
   },
   "devDependencies": {
+    "prisma": "^4.9.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
