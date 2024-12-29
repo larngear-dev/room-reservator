@@ -9,7 +9,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children} {/* Renders the child pages */}
+      </body>
     </html>
   );
 }
