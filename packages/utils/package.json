@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup",
     "watch": "tsup --watch",
-    "lint": "eslint src/",
+    "lint": "eslint src/*",
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "clean": "rm -rf dist .turbo node_modules"
@@ -26,6 +26,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
+    "eslint-config-turbo": "^1.12.4",
     "jest": "^29.7.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
