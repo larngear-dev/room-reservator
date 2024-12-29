@@ -9,6 +9,7 @@ export const metadata = {
 export default function HomePage(): JSX.Element {
   return (
     <div className="container">
+      <h1 className="text-2xl font-bold">Helllo</h1>
       <Hero />
       <Posts />
     </div>
