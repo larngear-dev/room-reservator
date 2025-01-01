@@ -2,18 +2,26 @@
   "name": "@repo/database",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "types": "./index.ts",
   "scripts": {
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:seed": "prisma db seed",
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo node_modules"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^4.9.0"
+    "@prisma/client": "^6.1.0"
   },
   "devDependencies": {
-    "prisma": "^4.9.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -24,6 +32,9 @@
     "eslint-config-turbo": "^1.12.4",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "tsup": "^8.0.2"
+    "prisma": "^6.1.0",
+    "tsc": "^2.0.4",
+    "tsup": "^8.0.2",
+    "typescript": "^5.7.2"
   }
 }
