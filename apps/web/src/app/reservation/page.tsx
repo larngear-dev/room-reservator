@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Calendar } from "@/components/ui/calendar";
 import { Menu } from "lucide-react";
+import Image from 'next/image';
 
 export default function Page() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
@@ -29,7 +30,7 @@ export default function Page() {
       {/* Header */}
       <div className="flex justify-between items-center p-4 border-b border-gray-800">
         <div className="flex items-center gap-2">
-          <img src="/api/placeholder/40/40" alt="IMC Logo" className="w-10 h-10" />
+          <Image src="/api/placeholder/40/40" width={10} height={10} alt="IMC Logo"/>
           <span className="font-bold">IMC</span>
         </div>
         <Menu className="w-6 h-6" />
@@ -41,13 +42,15 @@ export default function Page() {
         {/* Calendar */}
       <div className="flex w-full justify-center items-center">
         <Calendar captionLayout='dropdown-buttons' fromYear={1900} toYear={2050}
+        selected = {selectedDate}
+        onDayClick={setSelectedDate}
         className='h-full w-full p-3'
         classNames={{
           dropdown: 'bg-gray-800 text-white rounded-md',
           months: "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
           month: "w-full space-y-4",
           head_row: "flex justify-between",
-          row: "flex w-full mt-2 justify-between"
+          row: "flex w-full mt-2 justify-between",
         }}
         />
       </div>
