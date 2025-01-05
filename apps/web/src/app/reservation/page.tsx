@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { Calendar } from "@/components/ui/calendar";
-import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 
-export default function ReservationPage() {
+export default function Page() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -35,14 +35,19 @@ export default function ReservationPage() {
         <Menu className="w-6 h-6" />
       </div>
 
-      <div className="p-4 max-w-lg mx-auto">
+      <div className="p-4 max-w-xl mx-auto">
         <h1 className="text-center text-xl mb-6">Reservation</h1>
 
         {/* Calendar */}
-      <div className="flex justify-center items-center">
+      <div className="flex w-full justify-center items-center">
         <Calendar captionLayout='dropdown-buttons' fromYear={1900} toYear={2050}
+        className='h-full w-full p-3'
         classNames={{
-          dropdown: 'bg-gray-800 text-white rounded-md'
+          dropdown: 'bg-gray-800 text-white rounded-md',
+          months: "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+          month: "w-full space-y-4",
+          head_row: "flex justify-between",
+          row: "flex w-full mt-2 justify-between"
         }}
         />
       </div>
