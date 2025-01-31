@@ -11,7 +11,7 @@
     "db:seed": "prisma db seed",
     "build": "tsup",
     "watch": "tsup --watch",
-    "lint": "eslint src/",
+    "lint": "eslint src/*",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .turbo node_modules"
   },
@@ -22,6 +22,7 @@
     "@prisma/client": "^6.1.0"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -32,6 +33,7 @@
     "eslint-config-turbo": "^1.12.4",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-turbo": "^2.3.3",
     "prisma": "^6.1.0",
     "tsc": "^2.0.4",
     "tsup": "^8.0.2",

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsup",
     "watch": "tsup --watch",
-    "lint": "eslint src/",
+    "lint": "eslint src/*",
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "clean": "rm -rf dist .turbo node_modules"
@@ -17,6 +17,7 @@
     }
   },
   "devDependencies": {
+    "@repo/database": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -27,6 +28,7 @@
     "eslint-config-turbo": "^1.12.4",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-turbo": "^2.3.3",
     "tsup": "^8.0.2"
   }
 }
