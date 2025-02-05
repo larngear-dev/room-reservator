@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Calendar } from "@/components/ui/calendar";
 import { Menu } from "lucide-react";
 import Image from 'next/image';
+import { DatePickerDemo } from '@/components/DatePickerDemo';
+
 
 export default function Page() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
@@ -54,6 +56,9 @@ export default function Page() {
         }}
         />
       </div>
+        {/* <div className="flex w-full justify-center items-center mb-6">
+          <DatePickerDemo />
+        </div> */}
 
         {/* Time slots */}
         <div className="mt-6">
