@@ -12,34 +12,45 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
-model User {
-  id          String        @id @default(cuid())
-  studentId   String        @unique @db.VarChar(10)
-  firstName   String
-  lastName    String
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  Reservation Reservation[]
+enum ReservationStatus {
+  Incomplete
+  Complete
+  Cancelled
 }
 
 model Reservation {
-  id             String       @id @default(cuid())
-  topic          String
-  startAt        DateTime
-  endAt          DateTime
-  userId         String
-  user           User         @relation(fields: [userId], references: [id])
-  organizationId String
-  organization   Organization @relation(fields: [organizationId], references: [id])
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  ReservationId String @id @default(cuid())
+  UserId String
+  User User @relation(fields: [UserId], references: [LineId])
+  RoomId Int
+  Room Room @relation(fields: [RoomId], references: [RoomId])
+  Topic String
+  StartTime DateTime
+  EndTime DateTime
+  CreatedAt DateTime
+  EditedAt DateTime
+  Status ReservationStatus @default(Incomplete)
 }
 
-model Organization {
-  id          String        @id @default(cuid())
-  name        String
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+enum UserType {
+  Student
+  Staff
+  Admin
+}
+
+model User {
+  LineId String @id
+  FirstName String
+  LastName String
+  Type UserType @default(Student)
+  Reservation Reservation[]
+}
+
+model Room {
+  RoomId Int @id @default(autoincrement())
+  Location String
+  Capacity Int
+  Equipment String
+  Regulation String
   Reservation Reservation[]
 }
