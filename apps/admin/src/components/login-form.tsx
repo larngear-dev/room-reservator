@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 
-export default function LoginPage() {
+export default function LoginForm() {
 
   const router = useRouter();
 
@@ -19,7 +19,6 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#3D0D0D]">
       <div className="bg-[#6B3A3A] flex flex-col justify-center px-8 py-10 rounded-3xl shadow-lg w-1/3">
         <h2 className="text-white text-center text-2xl font-semibold mb-4">Login</h2>
 
@@ -68,6 +67,5 @@ export default function LoginPage() {
           Don’t have an account? <a href="#" className="font-semibold underline">Register</a>
         </p>
       </div>
-    </div>
   );
 }
