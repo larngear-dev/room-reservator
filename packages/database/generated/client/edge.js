@@ -153,7 +153,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/macbookairm1/Desktop/Imaim/room-reservator/packages/database/generated/client",
+      "value": "/Users/betich/code/work/LarngearDev/room-reservator/packages/database/generated/client",
       "fromEnvVar": null
     },
     "config": {
@@ -167,7 +167,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/macbookairm1/Desktop/Imaim/room-reservator/packages/database/prisma/schema.prisma",
+    "sourceFilePath": "/Users/betich/code/work/LarngearDev/room-reservator/packages/database/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

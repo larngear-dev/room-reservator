@@ -2,15 +2,11 @@
   "name": "@repo/database",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "./dist/index.js",
-  "types": "./index.ts",
   "scripts": {
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:seed": "prisma db seed",
-    "build": "tsup",
-    "watch": "tsup --watch",
     "lint": "eslint src/*",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .turbo node_modules"
