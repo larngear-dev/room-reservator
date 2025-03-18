@@ -1,5 +1,8 @@
-import { prisma } from "@repo/database";
+// import { prisma } from "@repo/database";
+import { PrismaClient } from "@prisma/client";
 import { Hono } from "hono";
+
+const prisma = new PrismaClient();
 
 const app = new Hono();
 
