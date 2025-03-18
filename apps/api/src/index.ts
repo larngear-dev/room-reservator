@@ -1,9 +1,14 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import reservation from "./controller/reservation";
+import users from "./controller/users";
 
-const app = new Hono()
+const app = new Hono().basePath("/api/v1");
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.route("/reservation", reservation);
+app.route("/users", users);
 
-export default app
+app.get("/", (c) => {
+  return c.text("Hello Hono!");
+});
+
+export default app;

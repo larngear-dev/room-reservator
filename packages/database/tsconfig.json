@@ -3,7 +3,10 @@
   "compilerOptions": {
     "lib": ["ES2015"],
     "outDir": "./dist",
-    "types": ["node"]
+    "types": ["node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
   },
   "include": ["."],
   "exclude": ["node_modules", "dist"]

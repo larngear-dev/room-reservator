@@ -1,9 +1,20 @@
 import { defineConfig, type Options } from "tsup";
 
 export default defineConfig((options: Options) => ({
-  entryPoints: ["src/*/index.ts", "src/index.ts"],
-  clean: false,
-  dts: true,
-  format: ["cjs"],
+  external: [
+    // ... other externals
+    "@prisma/client",
+    ".prisma/client",
+    "generated/client",
+  ],
+  // Or specifically for dts handling
+  dts: {
+    // You might need to adjust these options
+    resolve: true,
+  },
+  entry: ["src/index.ts"],
+  format: ["esm"],
+  sourcemap: true,
+  clean: true,
   ...options,
 }));

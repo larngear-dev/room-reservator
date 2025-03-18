@@ -15,11 +15,14 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .turbo node_modules"
   },
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^6.1.0"
+    "@prisma/client": "^6.3.1"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -34,8 +37,7 @@
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-turbo": "^2.3.3",
-    "prisma": "^6.1.0",
-    "tsc": "^2.0.4",
+    "prisma": "^6.3.1",
     "tsup": "^8.0.2",
     "typescript": "^5.7.2"
   }

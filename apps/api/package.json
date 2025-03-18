@@ -1,14 +1,18 @@
 {
   "name": "api",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "tsx ./src/index.ts",
+    "dev-wrangler": "wrangler dev",
     "deploy": "wrangler deploy --minify"
   },
   "dependencies": {
-    "hono": "^4.6.19"
+    "hono": "^4.6.19",
+    "@repo/database": "workspace:*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
+    "tsx": "^4.19.3",
     "wrangler": "^3.101.0"
   }
 }
