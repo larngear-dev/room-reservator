@@ -1,0 +1,52 @@
+// import { prisma } from "@repo/database";
+import { PrismaClient } from "@prisma/client";
+import { Hono } from "hono";
+
+const prisma = new PrismaClient();
+const app = new Hono();
+
+app.post("/", async (c) => {
+  try {
+    const body = await c.req.json();
+    const { UserId, RoomId, Topic, StartTime, EndTime } = body;
+    if (!UserId || !RoomId || !Topic) {
+      return c.json(
+        { error: "Missing required fields" },
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    const createReservation = await prisma.reservation.create({
+      data: {
+        UserId,
+        RoomId,
+        Topic,
+        StartTime: new Date(StartTime),
+        EndTime: new Date(EndTime),
+        CreatedAt: new Date(),
+        EditedAt: new Date(),
+        Status: "Incomplete",
+      },
+    });
+
+    return c.json(createReservation, {
+      status: 201,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      return c.json(
+        { error: error.message },
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+  }
+});
+
+export default app;

@@ -1,14 +1,27 @@
 {
   "name": "api",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "dev": "tsx watch ./src/index.ts",
+    "dev-wrangler": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@hono/node-server": "^1.13.8",
+    "@prisma/client": "^6.3.1",
     "hono": "^4.6.19"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
+    "prisma": "^6.3.1",
+    "tsx": "^4.19.3",
     "wrangler": "^3.101.0"
   }
 }
