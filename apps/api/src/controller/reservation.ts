@@ -3,15 +3,12 @@ import { PrismaClient } from "@prisma/client";
 import { Hono } from "hono";
 
 const prisma = new PrismaClient();
-
 const app = new Hono();
 
 app.post("/", async (c) => {
   try {
     const body = await c.req.json();
-    const { UserId, RoomId, Topic } = body;
-
-    // Ensure required fields are provided
+    const { UserId, RoomId, Topic, StartTime, EndTime } = body;
     if (!UserId || !RoomId || !Topic) {
       return c.json(
         { error: "Missing required fields" },
@@ -22,14 +19,13 @@ app.post("/", async (c) => {
       );
     }
 
-    // Create a new reservation in the database
     const createReservation = await prisma.reservation.create({
       data: {
         UserId,
         RoomId,
         Topic,
-        StartTime: new Date(),
-        EndTime: new Date(),
+        StartTime: new Date(StartTime),
+        EndTime: new Date(EndTime),
         CreatedAt: new Date(),
         EditedAt: new Date(),
         Status: "Incomplete",

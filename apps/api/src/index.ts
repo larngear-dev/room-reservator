@@ -9,7 +9,16 @@ app.route("/reservation", reservation);
 app.route("/users", users);
 
 app.get("/", (c) => {
-  return c.text("Hello Hono!");
+  const parsedDate = new Date("2025-03-21T10:30:00.000Z");
+
+  return c.json({
+    message: "Hello Hono!",
+    date: parsedDate.toISOString(),
+    a: parsedDate.toLocaleString(),
+    b: parsedDate.toUTCString(),
+    c: parsedDate.toDateString(),
+    d: Number(parsedDate),
+  });
 });
 
 serve({

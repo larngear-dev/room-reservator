@@ -2,7 +2,7 @@
   "name": "api",
   "type": "module",
   "scripts": {
-    "dev": "tsx ./src/index.ts",
+    "dev": "tsx watch ./src/index.ts",
     "dev-wrangler": "wrangler dev",
     "deploy": "wrangler deploy --minify",
     "db:generate": "prisma generate",

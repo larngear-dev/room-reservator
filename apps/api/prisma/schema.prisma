@@ -21,10 +21,10 @@ enum ReservationStatus {
 
 model Reservation {
   ReservationId String            @id @default(cuid())
-  UserId        String
-  User          User              @relation(fields: [UserId], references: [LineId])
+  UserId        Int
+  User          User              @relation(fields: [UserId], references: [Id])
   RoomId        Int
-  Room          Room              @relation(fields: [RoomId], references: [RoomId])
+  Room          Room              @relation(fields: [RoomId], references: [Id])
   Topic         String
   StartTime     DateTime
   EndTime       DateTime
@@ -40,7 +40,8 @@ enum UserType {
 }
 
 model User {
-  LineId      String        @id
+  Id          Int           @id @default(autoincrement())
+  LineId      String        @unique
   FirstName   String
   LastName    String
   Type        UserType      @default(Student)
@@ -48,7 +49,7 @@ model User {
 }
 
 model Room {
-  RoomId      Int           @id @default(autoincrement())
+  Id          Int           @id @default(autoincrement())
   Location    String
   Capacity    Int
   Equipment   String
